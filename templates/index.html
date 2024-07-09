@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wifi and coffee</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-<!--    hero section-->
-{% include "includes/hero.html" %}
-<!--    map section-->
-{% include "includes/map.html" %}
-<!--main section-->
-{% include "includes/main.html" %}
-<!--footer-->
-{% include "includes/footer.html" %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} Coffee & WIFI {% endblock title %}
+
+{% block content %}
+    <!--    hero section-->
+    {% include "includes/hero.html" %}
+    <!--    map section-->
+    {% include "includes/map.html" %}
+    <!--main section-->
+    {% include "includes/main.html" %}
+{% endblock content %}
