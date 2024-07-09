@@ -7,81 +7,12 @@
 </head>
 <body>
 <!--    hero section-->
-    <section>
-        <nav>
-            <p>Login</p>
-        </nav>
-        <img src="" alt="logo">
-        <h2>Explore Your Perfect Place To Work</h2>
-        <button>view best coffee places in london</button>
-    </section>
+{% include "includes/hero.html" %}
 <!--    map section-->
-    <section>
-        <img src="" alt="goole maps">
-    </section>
+{% include "includes/map.html" %}
 <!--main section-->
-    <section>
-<!--        main text-->
-        <div>
-            <h2>Found 23 Laptop Friendly Cafes in london</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at autem beatae consequuntur culpa
-                dignissimos doloremque doloribus dolorum explicabo fuga nostrum porro quidem, quod ratione soluta
-                tempora, veritatis voluptas voluptatibus.
-            </p>
-        </div>
-<!--        main coffee card-->
-        <div>
-            <h1>Science Gallery London</h1>
-            <h2>best rating laptop friendly coffee in london</h2>
-            <img src="" alt="coffee shot img">
-            <button>view more</button>
-        </div>
-<!--        grid coffe shop section-->
-        <div>
-            <h2>Explore the best coffee shops that we found for you in london</h2>
-            <div>
-<!--                grid-->
-                <div>
-<!--                coffee single card-->
-                    <img src="" alt="cofee img">
-                    <h2>coffee name</h2>
-                    <p>coffee description</p>
-                    <button>Read more</button>
-<!--                    coffee features-->
-                    <div>
-<!--                        map-->
-                        <div>
-                            <h2>map</h2>
-                        </div>
-<!--                        coffee-->
-                         <div>
-                            <h2>coffee</h2>
-                        </div>
-<!--                        wifi-->
-                        <div>
-                            <h2>wifi</h2>
-                        </div>
-                    </div>
-                </div>
-                <button>view more</button>
-            </div>
-        </div>
-    </section>
+{% include "includes/main.html" %}
 <!--footer-->
-    <footer>
-<!--        logo-->
-        <div>
-            <img src="" alt="logo">
-        </div>
-<!--        social networks-->
-        <div>
-            <h2>Contact Us</h2>
-            <div>
-                <img src="" alt="social 1">
-                <img src="" alt="social 2">
-                <img src="" alt="social 3 ">
-            </div>
-        </div>
-    </footer>
+{% include "includes/footer.html" %}
 </body>
 </html>
