@@ -1,2 +1,14 @@
+.hero{
+    height: 100vh;
+    background-image: url('/static/assets/img/hero.jpg');
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 80px 80px;
 
+}
 
