@@ -13,6 +13,10 @@
 
 }
 
+.logo{
+    width: 429px;
+}
+
 .tag-line{
     display: flex;
     justify-content: center;
@@ -21,13 +25,13 @@
     font-size: 40px;
     font-weight: 500;
     color: white;
+    text-align: center;
 }
 
 .button-container{
     display: flex;
     flex-grow: 1;
     align-items: end;
-    width: 427px;
     padding: 10px 10px;
 }
 
@@ -45,3 +49,15 @@
     cursor: pointer;
 }
 
+/* media queries */
+
+@media screen and (max-width: 500px){
+    .logo{
+        width: 279px;
+    }
+
+    .hero{
+        padding: 80px 10px 40px 10px;
+    }
+
+}

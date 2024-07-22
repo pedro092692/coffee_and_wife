@@ -1,0 +1,15 @@
+nav{
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 16px 40px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+}
+
+nav a{
+    color: inherit;
+}
