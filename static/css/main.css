@@ -65,6 +65,26 @@
     cursor: pointer;
 }
 
+
+.coffee-grid-title{
+    font-family: "Inter", sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+
+.grid{
+    min-width: 1380px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    place-items: center;
+}
+
+
+/* media queries */
 @media screen and (max-width: 500px){
     .main-section{
         padding: 40px 20px;

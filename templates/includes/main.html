@@ -19,33 +19,20 @@
             </div>
         </div>
 <!--        grid coffe shop section-->
-        <div>
-            <h2>Explore the best coffee shops that we found for you in london</h2>
-            <div>
+        <div class="coffee-grid-title">
+            <h2 class="title">Explore the best coffee shops that we found for you in london</h2>
+        </div>
+            <div class="grid">
 <!--                grid-->
-                <div>
-<!--                coffee single card-->
-                    <img src="" alt="cofee img">
-                    <h2>coffee name</h2>
-                    <p>coffee description</p>
-                    <button>Read more</button>
-<!--                    coffee features-->
-                    <div>
-<!--                        map-->
-                        <div>
-                            <h2>map</h2>
-                        </div>
-<!--                        coffee-->
-                         <div>
-                            <h2>coffee</h2>
-                        </div>
-<!--                        wifi-->
-                        <div>
-                            <h2>wifi</h2>
-                        </div>
-                    </div>
-                </div>
-                <button>view more</button>
+<!--                card-->
+                {% include "includes/coffee-card.html" %}
+                {% include "includes/coffee-card.html" %}
+                {% include "includes/coffee-card.html" %}
+                {% include "includes/coffee-card.html" %}
+                {% include "includes/coffee-card.html" %}
+                {% include "includes/coffee-card.html" %}
             </div>
+        <div>
+            <button>view more</button>
         </div>
     </section>
