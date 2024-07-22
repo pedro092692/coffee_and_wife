@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+<!--css-->
+{% block stylesheet %}
+<!--    hero-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hero.css') }}">
+{% endblock stylesheet %}
+<!--title-->
 {% block title %} Coffee & WIFI {% endblock title %}
 
 {% block content %}
