@@ -27,7 +27,8 @@ db.create_tables()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    username = 'pedro092692'
+    return render_template('index.html', user=username)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,82 @@
+.main-section{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 40px
+}
+
+
+.title-section h2{
+    font-family: "Inter", sans-serif;
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 24px;
+}
+
+.title-section p{
+    font-family: "Open sans", sans-serif;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.title-section p span{
+    font-weight: 700;
+}
+
+.main-coffee{
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+    gap: 16px;
+    padding: 36px 36px;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+}
+
+.main-coffee h1{
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.main-coffee h2{
+    font-size: 60px;
+    line-height: 122%;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.main-coffee img{
+    object-fit: cover;
+    height: 400px;
+    border-radius: 8px;
+
+}
+
+.main-coffee button{
+    font-family: "Open sans", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    background-color: #FB9600;
+    padding: 16px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px){
+    .main-section{
+        padding: 40px 20px;
+    }
+
+    .main-coffee h2{
+        font-size: 30px;
+    }
+
+    .main-coffee button{
+        width: 100%;
+    }
+
+
+}

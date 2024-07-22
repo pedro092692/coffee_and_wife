@@ -1,18 +1,22 @@
-    <section>
+    <section class="main-section">
 <!--        main text-->
-        <div>
-            <h2>Found 23 Laptop Friendly Cafes in london</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at autem beatae consequuntur culpa
-                dignissimos doloremque doloribus dolorum explicabo fuga nostrum porro quidem, quod ratione soluta
-                tempora, veritatis voluptas voluptatibus.
+        <div class="title-section">
+            <h2>Found {23} Laptop Friendly Cafes in london</h2>
+            <p>Whether you're traveling the globe as a digital nomad, working as a freelancer, or professional,
+                or just looking for a place to study, finding a conducive and efficient workspace is essential.
+                To address this, we've hand picked these cafes in <span>London</span> offering comfortable seating,
+                high-speed free Wi-Fi, and numerous power outlets. These laptop friendly cafes offer an ideal setting
+                for work, collaboration, city exploration, and productivity.
             </p>
         </div>
 <!--        main coffee card-->
-        <div>
-            <h1>Science Gallery London</h1>
+        <div class="main-coffee">
+            <h1>{Science Gallery London}</h1>
             <h2>best rating laptop friendly coffee in london</h2>
-            <img src="" alt="coffee shot img">
-            <button>view more</button>
+            <img src="{{ url_for('static', filename='assets/img/best_coffee.jpg') }}" alt="coffee shot img">
+            <div>
+                <button>view more</button>
+            </div>
         </div>
 <!--        grid coffe shop section-->
         <div>
