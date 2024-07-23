@@ -78,9 +78,22 @@
 .grid{
     min-width: 1380px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
+    gap: 24px;
+}
+
+.view-more button{
+    font-family: "Open sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 16px 16px;
+    background-color: #FB9600;
 }
 
 
