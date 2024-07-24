@@ -47,6 +47,10 @@
     border-top: 1px solid #ACAAAA;
 }
 
+.coffee-card .coffee-features a{
+    color: inherit;
+}
+
 .coffee-card .coffee-features div{
     font-size: 20px;
     font-weight: 700;
