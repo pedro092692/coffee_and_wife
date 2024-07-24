@@ -123,3 +123,9 @@
     }
 
 }
+
+footer .social{
+    display: flex;
+    gap: 40px;
+    font-size: 30px;
+}
