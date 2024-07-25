@@ -22,7 +22,7 @@
                 {{ login_user_form.email(placeholder='Email') }}
                 {{ login_user_form.password(placeholder='Password') }}
                 {{ login_user_form.submit(value='sign in') }}
-                <p>don't have account ? <a href="#">register here</a></p>
+                <p>don't have account ? <a href="{{ url_for('security.register') }}">register here</a></p>
             </form>
         </div>
     </div>

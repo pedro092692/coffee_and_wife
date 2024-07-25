@@ -20,6 +20,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 csfr = CSRFProtect(app)
 
+# config app
+app.config['SECURITY_REGISTERABLE'] = True
 
 # database
 db = Database(app)
@@ -37,6 +39,11 @@ def login():
     user = 'pedro bastidas'
     pedro = 'pedro pedro'
     return render_template('security/login_user.html', username=user, pedro=pedro)
+
+
+@app.route('/register')
+def register():
+    return render_template('security/register_user.html')
 
 
 if __name__ == "__main__":

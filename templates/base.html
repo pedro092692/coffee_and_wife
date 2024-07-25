@@ -23,7 +23,7 @@
     {% block content %}
     {% endblock content %}
 <!--footer-->
-    {% if request.path  != '/login' %}
+    {% if request.path  not in ['/login', '/register'] %}
         {% include "includes/footer.html" %}
     {% endif %}
 </body>
