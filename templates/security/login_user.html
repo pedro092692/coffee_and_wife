@@ -2,6 +2,7 @@
 
 <!--css-->
 {% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock stylesheet %}
 
 <!--title-->
@@ -9,10 +10,9 @@
 
 <!--content-->
 {% block content %}
-    <div>
+    <div class="main-container">
 <!--        img-->
         <div class="img-login">
-            <img src="" alt="IMG">
         </div>
 <!--        form-->
         <form method="POST" action="">
