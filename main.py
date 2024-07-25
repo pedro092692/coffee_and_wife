@@ -2,7 +2,6 @@ from flask import Flask, url_for, redirect, render_template, request, flash
 from flask_wtf.csrf import CSRFProtect
 from database import Database
 from dotenv import load_dotenv
-from forms.login_form import LoginForm
 import os
 
 # todo import data base
@@ -33,10 +32,11 @@ def home():
     return render_template('index.html', user=username)
 
 
-@app.route('/login1')
+@app.route('/login')
 def login():
-    form = LoginForm()
-    return render_template('security/login_user.html', form=form)
+    user = 'pedro bastidas'
+    pedro = 'pedro pedro'
+    return render_template('security/login_user.html', username=user, pedro=pedro)
 
 
 if __name__ == "__main__":

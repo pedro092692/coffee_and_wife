@@ -16,8 +16,10 @@
         </div>
 <!--        form-->
         <form method="POST" action="">
-            {{ form.csrf_token }}
-            {{ form.email }}
+            {{ login_user_form.csrf_token }}
+            {{ login_user_form.email }}
+            {{ login_user_form.password }}
+            {{ login_user_form.submit }}
         </form>
     </div>
 {% endblock content %}
