@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!--css-->
+{% block stylesheet %}
+{% endblock stylesheet %}
+
+<!--title-->
+{% block title %} Login {% endblock title  %}
+
+<!--content-->
+{% block content %}
+    <div>
+<!--        img-->
+        <div class="img-login">
+            <img src="" alt="IMG">
+        </div>
+<!--        form-->
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            {{ form.email }}
+        </form>
+    </div>
+{% endblock content %}

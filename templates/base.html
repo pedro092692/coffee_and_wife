@@ -23,7 +23,9 @@
     {% block content %}
     {% endblock content %}
 <!--footer-->
-    {% include "includes/footer.html" %}
+    {% if request.path  != '/login' %}
+        {% include "includes/footer.html" %}
+    {% endif %}
 </body>
 </html>
 
