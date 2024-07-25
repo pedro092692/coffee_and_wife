@@ -15,11 +15,15 @@
         <div class="img-login">
         </div>
 <!--        form-->
-        <form method="POST" action="">
-            {{ login_user_form.csrf_token }}
-            {{ login_user_form.email }}
-            {{ login_user_form.password }}
-            {{ login_user_form.submit }}
-        </form>
+        <div class="form">
+            <h2>sign <span>in</span></h2>
+            <form method="POST" action="">
+                {{ login_user_form.csrf_token }}
+                {{ login_user_form.email(placeholder='Email') }}
+                {{ login_user_form.password(placeholder='Password') }}
+                {{ login_user_form.submit(value='sign in') }}
+                <p>don't have account ? <a href="#">register here</a></p>
+            </form>
+        </div>
     </div>
 {% endblock content %}
