@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<!--css-->
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/coffee.css') }}">
+{% endblock stylesheet %}
+
+<!--title-->
+{% block title %} Coffee name {% endblock title %}
+
+<!--content-->
+{% block content %}
+<!--    hero section-->
+    {% include 'coffee/hero.html' %}
+{% endblock content %}

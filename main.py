@@ -46,6 +46,12 @@ def register():
     return render_template('security/register_user.html')
 
 
+@app.route('/coffee/<slug>')
+def show_coffee(slug):
+
+    return render_template('coffee.html')
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
