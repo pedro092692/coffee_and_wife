@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+<!--css-->
+{% block stylesheet %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock stylesheet %}
+
+<!--title-->
+{% block title %} Page Not Found {% endblock title  %}
+
+{% block content %}
+    <!--    hero section-->
+    {% include "includes/nav.html" %}
+    <div class="main-container">
+        <h2>404 page not found</h2>
+        <p>go to home  <a href="/">here</a></p>
+    </div>
+{% endblock content %}

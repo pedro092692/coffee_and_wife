@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.main-container{
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 80px 80px;
+    background-image: url('/static/assets/img/404.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-transform: capitalize;
+}
+
+.main-container h2{
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+}
+
+.main-container p{
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.main-container a{
+    color: #FB9600;
+    text-decoration: none;
+}
+
+
