@@ -1,0 +1,158 @@
+.main-content-coffee{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: "Inter", sans-serif;
+    padding: 40px 40px;
+}
+
+.main-content-coffee .coffee-summary h2{
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+}
+
+.main-content-coffee .coffee-summary p{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 50px;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+}
+
+.main-content-coffee .coffee-rating{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-content-coffee .coffee-rating div{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 48px 10px;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.main-content-coffee .coffee-rating p{
+    text-transform: capitalize;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.main-content-coffee .coffee-rating i{
+    font-size: 60px;
+}
+
+.main-content-coffee .coffee-rating .rating{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+}
+
+.main-content-coffee .coffee-rating .rating i{
+    font-size: 32px;
+}
+
+
+.features{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 10px 10px;
+}
+
+.features h2{
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.features .hour{
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    gap: 16px;
+}
+
+.features .hour h3{
+    display: inline;
+}
+
+.features .hour .open{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.features .productivity{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.features .productivity h3{
+    font-size: 24;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+.features .productivity h3{
+    font-size: 24;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+.features .productivity .container{
+    display: flex;
+    padding: 10px 0px;
+}
+
+.features .productivity .container div{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.features .reviews{
+    display: flex;
+    gap: 64px;
+    flex-direction: column;
+    padding: 10px 10px;
+}
+
+.features .review{
+    display: flex;
+    gap: 24px;
+}
+
+.features .review p{
+    font-size: 24px;
+    font-weight: 300;
+    line-height: auto;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+}
+
+.features .review img{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.main-content-coffee .reviews button{
+    font-family: "Open sans", sans, serif;
+    font-size: 20px;
+    color: white;
+    text-transform: capitalize;
+    padding: 16px 16px;
+    border: none;
+    background-color: #FB9600;
+    border-radius: 10px;
+    cursor: pointer;
+}
+

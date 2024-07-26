@@ -2,8 +2,11 @@
 
 <!--css-->
 {% block stylesheet %}
+<!--    nav-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/coffee.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/coffee-style.css') }}">
 {% endblock stylesheet %}
 
 <!--title-->
@@ -13,4 +16,6 @@
 {% block content %}
 <!--    hero section-->
     {% include 'coffee/hero.html' %}
+<!--content-->
+    {% include 'coffee/content.html' %}
 {% endblock content %}
