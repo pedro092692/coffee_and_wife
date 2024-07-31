@@ -87,6 +87,11 @@
     cursor: pointer;
 }
 
+.main-container .form .error{
+    font-size: 16px;
+    color: #FF5733;
+}
+
 /* media queries */
 
 @media screen and (max-width: 1366px){

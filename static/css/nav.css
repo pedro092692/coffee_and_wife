@@ -14,3 +14,7 @@ nav{
 nav a{
     color: inherit;
 }
+
+nav .user-name{
+    text-decoration: underline;
+}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% from 'security/_render_error.html' import render_form_error %}
+{% from "security/_macros.html" import render_field_with_errors, render_field, render_field_errors, render_form_errors, prop_next %}
 <!--css-->
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
@@ -17,10 +18,15 @@
 <!--        form-->
         <div class="form">
             <h2>sign <span>in</span></h2>
+            {% include "security/_messages.html" %}
             <form method="POST" action="">
                 {{ login_user_form.csrf_token }}
                 {{ login_user_form.email(placeholder='Email') }}
+                <!--Errors-->
+                {{ render_form_error(login_user_form.email) }}
                 {{ login_user_form.password(placeholder='Password') }}
+                <!--Errors-->
+                {{ render_form_error(login_user_form.password) }}
                 {{ login_user_form.submit(value='sign in') }}
                 <p>don't have account ? <a href="{{ url_for('security.register') }}">register here</a></p>
             </form>

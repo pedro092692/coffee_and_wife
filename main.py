@@ -19,9 +19,9 @@ app = Flask(__name__)
 # setup app
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 csfr = CSRFProtect(app)
-
-# config app
+# flask security
 app.config['SECURITY_REGISTERABLE'] = True
+app.config['SECURITY_SEND_REGISTER_EMAIL'] = False
 
 # database
 db = Database(app)
@@ -30,8 +30,7 @@ db.create_tables()
 
 @app.route('/')
 def home():
-    username = 'pedro092692'
-    return render_template('index.html', user=username)
+    return render_template('index.html')
 
 
 @app.route('/login')

@@ -1,5 +1,10 @@
 <nav>
+    {% if current_user.is_authenticated %}
+        <p class="user-name">{{ current_user.email }}</p>
+    {% else %}
+
     <a href="{{ url_for('login') }}">
         <p>LOGIN</p>
     </a>
+    {% endif %}
 </nav>

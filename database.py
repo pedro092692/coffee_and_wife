@@ -62,7 +62,7 @@ class Database:
             if not self.app.security.datastore.find_user(email=os.environ.get('EMAIL_FOR_LOGIN')):
                 self.app.security.datastore.create_user(
                     email=os.environ.get('EMAIL_FOR_LOGIN'),
-                    password=os.environ.get('PASSWORD_FOR_LOGIN')
+                    password=hash_password(os.environ.get('PASSWORD_FOR_LOGIN'))
                 )
                 self.db.session.commit()
 
