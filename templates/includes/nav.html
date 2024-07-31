@@ -1,6 +1,7 @@
 <nav>
     {% if current_user.is_authenticated %}
-        <p class="user-name">{{ current_user.email }}</p>
+        {% set user_name = current_user.email.split('@')[0] %}
+        <p class="user-name">{{ user_name }}</p>
     {% else %}
 
     <a href="{{ url_for('login') }}">

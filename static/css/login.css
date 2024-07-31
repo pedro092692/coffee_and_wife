@@ -90,6 +90,7 @@
 .main-container .form .error{
     font-size: 16px;
     color: #FF5733;
+    text-transform: lowercase;
 }
 
 /* media queries */

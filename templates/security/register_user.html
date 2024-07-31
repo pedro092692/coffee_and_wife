@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% from 'security/_render_error.html' import render_form_error %}
 <!--css-->
 {% block stylesheet %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
@@ -20,8 +20,13 @@
             <form method="POST" action="">
                 {{ register_user_form.csrf_token }}
                 {{ register_user_form.email(placeholder='Email') }}
+<!--                Errors-->
+                {{ render_form_error(register_user_form.email) }}
                 {{ register_user_form.password(placeholder='Password') }}
                 {{ register_user_form.password_confirm(placeholder='Confirm Password') }}
+                <!--                Errors-->
+                {{ render_form_error(register_user_form.password) }}
+                {{ render_form_error(register_user_form.password_confirm) }}
                 {{ register_user_form.submit(value='register') }}
             </form>
         </div>
