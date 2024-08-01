@@ -32,3 +32,10 @@
 }
 
 
+/* media queries */
+
+@media screen and (max-width: 500px){
+    .coffee-hero h1{
+        padding: 40px 10px;
+    }
+}

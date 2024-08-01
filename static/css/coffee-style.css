@@ -85,6 +85,12 @@
     text-align: center;
 }
 
+.features .features-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .features .productivity{
     display: flex;
     flex-direction: column;
@@ -156,3 +162,27 @@
     cursor: pointer;
 }
 
+/* media queries */
+@media screen and (max-width: 1150px){
+    .main-content-coffee{
+        padding: 40px 10px;
+    }
+    .main-content-coffee .coffee-rating{
+        flex-direction: column;
+    }
+    .features .features-container div{
+        width: auto;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .features .features-container .hour{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .features .productivity .container{
+        gap: 10px;
+    }
+
+}
