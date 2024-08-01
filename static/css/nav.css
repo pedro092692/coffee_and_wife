@@ -62,12 +62,18 @@ nav .menu .menu-element p{
 nav .menu{
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.3s linear;
+  transition: all 0.4s linear;
 }
 
-nav .menu .show-menu{
+nav .test{
     visibility: visible;
     opacity: 1;
+}
+
+nav .off{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
 }
 
 
