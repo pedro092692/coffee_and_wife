@@ -70,11 +70,49 @@ nav .test{
     opacity: 1;
 }
 
-nav .off{
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s linear;
+.mobile-menu{
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        height: 100vh;
+        background: #FB9600;
+        padding: 16px 20px;
+        font-family: "Inter", sans serif;
+        font-size: 32px;
+        font-weight: 800;
+        color: white;
+    }
+
+.mobile-menu a{
+    color: inherit;
+    text-decoration: none;
+}
+
+#close{
+   display: inline;
+   cursor: pointer;
+}
+
+hide-nav{
+    display: none;
 }
 
 
+/* media queries */
 
+@media screen and (max-width: 500px){
+    .mobile-show{
+        display: flex;
+    }
+
+    .mobile-menu div{
+        padding: 10px 10px;
+    }
+
+    .mobile-menu span{
+        border: 1px solid white;
+    }
+
+
+}

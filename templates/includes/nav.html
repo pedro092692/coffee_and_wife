@@ -1,5 +1,5 @@
-<nav>
-    <div>
+<nav id="nav" class="">
+    <div class="user-menu">
         {% if current_user.is_authenticated %}
             {% set user_name = current_user.email.split('@')[0] %}
             <p class="user-name" id="username">{{ user_name }}</p>
@@ -24,3 +24,18 @@
     </div>
 </nav>
 
+<!--mobile menu-->
+<div class="mobile-menu" id="mobile-menu">
+    <div>
+        <p id="close">X</p>
+    </div>
+
+    <div>
+        <p>Add new coffee shop</p>
+    </div>
+    <span></span>
+    <div>
+        <a href="{{ url_for('security.logout') }}"><p>Logout</p></a>
+    </div>
+
+</div>
