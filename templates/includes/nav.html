@@ -1,11 +1,26 @@
 <nav>
-    {% if current_user.is_authenticated %}
-        {% set user_name = current_user.email.split('@')[0] %}
-        <p class="user-name">{{ user_name }}</p>
-    {% else %}
+    <div>
+        {% if current_user.is_authenticated %}
+            {% set user_name = current_user.email.split('@')[0] %}
+            <p class="user-name" id="username">{{ user_name }}</p>
+        {% else %}
 
-    <a href="{{ url_for('login') }}">
-        <p>LOGIN</p>
-    </a>
-    {% endif %}
+        <a href="{{ url_for('login') }}">
+            <p>LOGIN</p>
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="menu" id="menu">
+        <div class="menu-element">
+            <p>Add new coffee shop</p>
+        </div>
+        <span></span>
+        <div class="menu-element">
+            <a href="{{ url_for('security.logout') }}" >
+                <p>Logout</p>
+            </a>
+        </div>
+    </div>
 </nav>
+

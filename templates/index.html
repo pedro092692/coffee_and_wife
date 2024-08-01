@@ -24,3 +24,7 @@
     <!--main section-->
     {% include "includes/main.html" %}
 {% endblock content %}
+
+{% block js  %}
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+{% endblock %}

@@ -28,6 +28,9 @@
     {% if request.path  not in ['/login', '/register'] %}
         {% include "includes/footer.html" %}
     {% endif %}
+
+    {% block js %}
+    {% endblock js %}
 </body>
 </html>
 

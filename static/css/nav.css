@@ -1,4 +1,8 @@
 nav{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 8px;
     font-family: "Inter", sans-serif;
     position: absolute;
     width: 100%;
@@ -17,4 +21,54 @@ nav a{
 
 nav .user-name{
     text-decoration: underline;
+    cursor: pointer;
 }
+
+
+nav .menu{
+    width: 264px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px;
+    color: black;
+    background: white;
+    border-radius: 8px;
+}
+
+nav .menu .menu-element{
+    flex-grow: 1;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    font-family: "Open sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+nav .menu span{
+    border: 1px solid black;
+}
+
+nav .menu a{
+    text-decoration: none;
+}
+
+nav .menu .menu-element p{
+    cursor: pointer;
+}
+
+nav .menu{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+nav .menu .show-menu{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
