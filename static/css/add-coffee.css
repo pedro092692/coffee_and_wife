@@ -11,3 +11,19 @@
     font-weight: 900;
     text-transform: capitalize;
 }
+
+.main .main-info{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.main .form-input{
+    padding: 16px 16px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #C0C0C0;
+    border: 1px solid #E1E1E1;
+    border-radius: 8px;
+}
+

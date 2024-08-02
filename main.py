@@ -3,6 +3,7 @@ from flask_wtf.csrf import CSRFProtect
 from database import Database
 from dotenv import load_dotenv
 from flask_security import login_required
+from forms.add_coffee_shop import AddCoffeeShop
 import os
 
 # todo import data base
@@ -48,15 +49,15 @@ def register():
 
 @app.route('/coffee/<slug>')
 def show_coffee(slug):
-
+    form = a
     return render_template('coffee.html')
 
 
 @app.route('/add')
 @login_required
 def add_coffee():
-
-    return render_template('add.html')
+    form = AddCoffeeShop()
+    return render_template('add.html', form=form)
 
 
 @app.errorhandler(404)

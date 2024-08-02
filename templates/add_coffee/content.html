@@ -1,37 +1,30 @@
-<section class="main">
-    <div class="main-info">
-        <h2>main coffee info</h2>
-        <form action="">
-            form
-        </form>
-    </div>
-    <div class="coffee-features">
-        <h2>Coffee Features</h2>
-        <form action="">
-            form
-        </form>
-    </div>
-    <div class="coffee-score">
-        <h2>Coffee score</h2>
-        <form action="">
-            form
-        </form>
-    </div>
-    <div class="coffee-open">
-        <h2>Opening Hours</h2>
-        <form action="">
-            form
-        </form>
-    </div>
-    <div class="coffee-media">
-        <h2>media info</h2>
-        <form action="">
-            form
-        </form>
-    </div>
-    <div>
-        <button>
-            add coffee shop
-        </button>
-    </div>
+<section>
+    <form action="" class="main">
+        {{ form.csrf_token }}
+        <div class="main-info">
+            <h2>main coffee info</h2>
+            {{ form.name(placeholder='Coffee Name', class='form-input') }}
+            {{ form.map_url(placeholder='Address URL', class='form-input') }}
+            {{ form.description(placeholder='Coffee Description', class='form-input') }}
+        </div>
+        <div class="coffee-features">
+            <h2>Coffee Features</h2>
+            <p>Productivity</p>
+            stable wifi
+            {{ form.wifi }}
+            power sockets
+            {{ form.wifi }}
+            quiet
+            {{ form.wifi }}
+        </div>
+        <div class="coffee-score">
+            <h2>Coffee score</h2>
+        </div>
+        <div class="coffee-open">
+            <h2>Opening Hours</h2>
+        </div>
+        <div class="coffee-media">
+            <h2>media info</h2>
+        </div>
+    </form>
 </section>
