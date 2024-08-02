@@ -2,6 +2,7 @@ from flask import Flask, url_for, redirect, render_template, request, flash
 from flask_wtf.csrf import CSRFProtect
 from database import Database
 from dotenv import load_dotenv
+from flask_security import login_required
 import os
 
 # todo import data base
@@ -49,6 +50,13 @@ def register():
 def show_coffee(slug):
 
     return render_template('coffee.html')
+
+
+@app.route('/add')
+@login_required
+def add_coffee():
+
+    return render_template('add.html')
 
 
 @app.errorhandler(404)

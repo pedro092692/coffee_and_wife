@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px;
+    gap: 24px;
+}
+
+.main div h2{
+    font-family: "Inter", sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: capitalize;
+}

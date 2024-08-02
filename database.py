@@ -28,6 +28,7 @@ class User(db.Model, fsqla.FsUserMixin):
     password: Mapped[str] = mapped_column(String(250), nullable=False)
     fs_uniquifier: Mapped[str] = mapped_column(String, nullable=False, unique=True)
 
+
 class Cafe(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(250), nullable=False)
@@ -39,6 +40,7 @@ class Cafe(db.Model):
     power: Mapped[float] = mapped_column(Float, nullable=False)
     open: Mapped[str] = mapped_column(String(250), nullable=False)
     close: Mapped[str] = mapped_column(String(250), nullable=False)
+
 
 class Database:
 

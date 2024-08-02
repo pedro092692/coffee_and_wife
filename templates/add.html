@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+<!--css-->
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/coffee.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add-coffee.css') }}">
+{% endblock stylesheet %}
+
+<!--title-->
+{% block title %}
+    Add New Coffee Shop
+{% endblock title%}
+
+<!--content-->
+{% block content %}
+<!--    nav-->
+    {% include 'add_coffee/hero.html' %}
+<!--content-->
+    {% include 'add_coffee/content.html' %}
+{% endblock content %}
