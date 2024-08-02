@@ -3,6 +3,7 @@
     height: 550px;
     display: flex;
     align-items: end;
+    z-index: -2;
 
 }
 

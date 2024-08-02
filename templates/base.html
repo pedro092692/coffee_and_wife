@@ -29,6 +29,9 @@
         {% include "includes/footer.html" %}
     {% endif %}
 
+
+    <script src="{{ url_for('static', filename='js/menu.js') }}">
+    </script>
     {% block js %}
     {% endblock js %}
 </body>

@@ -1,31 +1,36 @@
 nav{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding:16px 16px;
+}
+
+.nav{
     display: flex;
     flex-direction: column;
     align-items: end;
     gap: 8px;
     font-family: "Inter", sans-serif;
-    position: absolute;
     width: 100%;
     display: flex;
     justify-content: end;
-    padding: 16px 40px;
     text-transform: uppercase;
     color: white;
     font-weight: 600;
     z-index: 20;
 }
 
-nav a{
+.nav a{
     color: inherit;
 }
 
-nav .user-name{
+.nav .user-name{
     text-decoration: underline;
     cursor: pointer;
 }
 
 
-nav .menu{
+.nav .menu{
     width: 264px;
     height: 160px;
     display: flex;
@@ -36,7 +41,7 @@ nav .menu{
     border-radius: 8px;
 }
 
-nav .menu .menu-element{
+.nav .menu .menu-element{
     flex-grow: 1;
     padding: 10px 10px;
     display: flex;
@@ -47,25 +52,25 @@ nav .menu .menu-element{
     text-transform: capitalize;
 }
 
-nav .menu span{
+.nav .menu span{
     border: 1px solid black;
 }
 
-nav .menu a{
+.nav .menu a{
     text-decoration: none;
 }
 
-nav .menu .menu-element p{
+.nav .menu .menu-element p{
     cursor: pointer;
 }
 
-nav .menu{
+.nav .menu{
   visibility: hidden;
   opacity: 0;
   transition: all 0.4s linear;
 }
 
-nav .test{
+.nav .test{
     visibility: visible;
     opacity: 1;
 }
@@ -113,6 +118,5 @@ hide-nav{
     .mobile-menu span{
         border: 1px solid white;
     }
-
 
 }

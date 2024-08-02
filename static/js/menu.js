@@ -32,7 +32,6 @@ function close_menu(button, window_width, mobile_menu){
                     button.classList.remove('test');
              }
          }else{
-            console.log(event.composedPath())
             if(event.composedPath().includes(button)){
                 nav.style.display = 'flex';
                 username.style.display = 'block';
