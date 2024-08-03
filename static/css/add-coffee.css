@@ -58,7 +58,26 @@
 }
 
 .main input[type=checkbox]{
-    transform: scale(1.4);
+
+}
+
+.main input[type=submit]{
+    padding: 16px 0px;
+    font-family: "Open sans", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    background: #FB9600;
+    cursor: pointer;
+}
+
+.main .error{
+    font-size: 16px;
+    font-weight: 300;
+    color: red;
 }
 
 /* media queries */

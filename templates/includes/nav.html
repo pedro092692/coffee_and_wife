@@ -17,18 +17,21 @@
             </a>
             {% endif %}
         </div>
-
-        <div class="menu" id="menu">
-            <div class="menu-element">
-                <p>Add new coffee shop</p>
+        {% if current_user.is_authenticated %}
+            <div class="menu" id="menu">
+                <div class="menu-element">
+                    <a href="{{ url_for('add_coffee') }}" >
+                        <p>Add new coffee shop</p>
+                    </a>
+                </div>
+                <span></span>
+                <div class="menu-element">
+                    <a href="{{ url_for('security.logout') }}" >
+                        <p>Logout</p>
+                    </a>
+                </div>
             </div>
-            <span></span>
-            <div class="menu-element">
-                <a href="{{ url_for('security.logout') }}" >
-                    <p>Logout</p>
-                </a>
-            </div>
-        </div>
+        {% endif %}
     </div>
 </nav>
 

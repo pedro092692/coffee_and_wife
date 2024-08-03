@@ -30,7 +30,7 @@ db = Database(app)
 db.create_tables()
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -47,23 +47,41 @@ def register():
     return render_template('security/register_user.html')
 
 
-@app.route('/coffee/<slug>')
+@app.route('/coffee/<slug>', methods=['GET'])
 def show_coffee(slug):
-    form = a
     return render_template('coffee.html')
 
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 @login_required
 def add_coffee():
     form = AddCoffeeShop()
+
+    if form.validate_on_submit():
+
+        # Coffee Info
+        coffee_name = form.name.data
+        address_url = form.map_url.data
+        description = form.description.data
+        stable_wife = form.wifi.data
+        power_sockets = form.power_sockets
+        quiet = form.quiet.data
+        coffee_service = form.coffee_service.data
+        food_service = form.food_service.data
+        credit_card = form.credit_card_service.data
+        coffee_rating = form.coffee.data
+        wifi_rating = form.wifi_score.data
+        power_sockets_rating = form.power.data
+        open_hour = form.open.data
+        close_hour = form.close.data
+        image_url = form.image_url.data
+
     return render_template('add.html', form=form)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
-
 
 
 if __name__ == "__main__":
