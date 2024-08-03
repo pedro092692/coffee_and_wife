@@ -73,3 +73,31 @@ class Database:
                 )
                 self.db.session.commit()
 
+
+    def add_new_coffee_shop(self, name, address_url, description, stable_wife, power_sockets, quiet, coffee_service,
+                            food_service, credit_card, coffee_score, wifi_score,
+                            power_sockets_score, open_hour, close_hour, image_url):
+
+        new_coffee = Cafe(
+            name=name,
+            map_url=address_url,
+            description=description,
+            wifi=stable_wife,
+            power=power_sockets,
+            quiet=quiet,
+            coffee=coffee_service,
+            credit_card=credit_card,
+            food=food_service,
+            wifi_rating=wifi_score,
+            coffee_rating=coffee_score,
+            power_rating=power_sockets_score,
+            open=open_hour,
+            close=close_hour,
+            image_url=image_url
+        )
+
+        self.db.session.add(new_coffee)
+        self.db.session.commit()
+
+        return new_coffee
+

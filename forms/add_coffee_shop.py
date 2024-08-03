@@ -9,7 +9,7 @@ class AddCoffeeShop(FlaskForm):
     description = StringField(label='Coffee Description', validators=[DataRequired(), Length(min=30, max=500)])
     # location = StringField(label='Location', validators=[DataRequired()])
     wifi = BooleanField(label='Wifi', default='')
-    power_sockets = BooleanField(label='Power Sockets', default='')
+    power_socket = BooleanField(label='Power Socket', default='')
     quiet = BooleanField(label='Quiet', default='')
     coffee_service = BooleanField(label='Coffee Service', default='')
     food_service = BooleanField(label='Coffee Service', default='')

@@ -68,7 +68,7 @@ def add_coffee():
         address_url = form.map_url.data
         description = form.description.data
         stable_wife = form.wifi.data
-        power_sockets = form.power_sockets
+        power_socket = form.power_socket.data
         quiet = form.quiet.data
         coffee_service = form.coffee_service.data
         food_service = form.food_service.data
@@ -79,6 +79,25 @@ def add_coffee():
         open_hour = form.open.data
         close_hour = form.close.data
         image_url = form.image_url.data
+
+        db.add_new_coffee_shop(
+            name=coffee_name,
+            address_url=address_url,
+            description=description,
+            stable_wife=stable_wife,
+            power_sockets=power_socket,
+            quiet=quiet,
+            coffee_service=coffee_service,
+            food_service=food_service,
+            credit_card=credit_card,
+            coffee_score=coffee_rating,
+            wifi_score=wifi_rating,
+            power_sockets_score=power_sockets_rating,
+            open_hour=open_hour,
+            close_hour=close_hour,
+            image_url=image_url
+
+        )
 
     return render_template('add.html', form=form)
 
