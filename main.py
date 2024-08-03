@@ -4,6 +4,7 @@ from database import Database
 from dotenv import load_dotenv
 from flask_security import login_required
 from forms.add_coffee_shop import AddCoffeeShop
+from flask_migrate import Migrate
 import os
 
 # todo import data base
@@ -28,6 +29,9 @@ app.config['SECURITY_SEND_REGISTER_EMAIL'] = False
 # database
 db = Database(app)
 db.create_tables()
+
+# flask migrate
+migrate = Migrate(app, db.db)
 
 
 @app.route('/', methods=['GET'])
