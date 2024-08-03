@@ -5,6 +5,14 @@
     gap: 24px;
 }
 
+
+.main div p{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
 .main div h2{
     font-family: "Inter", sans-serif;
     font-size: 40px;
@@ -12,11 +20,33 @@
     text-transform: capitalize;
 }
 
-.main .main-info{
+.main .main-info, .coffee-score, .coffee-open, .coffee-media{
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
+
+.main .coffee-features{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.main .coffee-features .features{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main .coffee-features .features .form-items{
+    display: flex;
+    gap: 24px;
+}
+
+.main div .subtitle{
+    font-size: 24px;
+}
+
 
 .main .form-input{
     padding: 16px 16px;
@@ -27,3 +57,19 @@
     border-radius: 8px;
 }
 
+.main input[type=checkbox]{
+    transform: scale(1.4);
+}
+
+/* media queries */
+@media screen and (max-width: 500px){
+    .main .coffee-features .features .form-items{
+        flex-direction: column;
+
+    }
+
+    .main .coffee-features .features .form-items p{
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -9,22 +9,57 @@
         </div>
         <div class="coffee-features">
             <h2>Coffee Features</h2>
-            <p>Productivity</p>
-            stable wifi
-            {{ form.wifi }}
-            power sockets
-            {{ form.wifi }}
-            quiet
-            {{ form.wifi }}
+            <div class="features">
+                <p class="subtitle">Productivity</p>
+                <div class="form-items">
+                    <p>
+                        stable wifi
+                        {{ form.wifi }}
+                    </p>
+                    <p>
+                        power sockets
+                        {{ form.power_sockets }}
+                    </p>
+                    <p>
+                        quiet
+                        {{ form.quiet }}
+                    </p>
+                </div>
+
+<!--             services-->
+                <p class="subtitle">services</p>
+                <div class="form-items">
+                    <p>
+                        Coffee
+                        {{ form.coffee_service }}
+                    </p>
+                    <p>
+                        food
+                        {{ form.food_service }}
+                    </p>
+                    <p>
+                        credit card
+                        {{ form.credit_card_service }}
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="coffee-score">
             <h2>Coffee score</h2>
+            {{ form.coffee(class='form-input') }}
+            {{ form.wifi_score(class='form-input') }}
+            {{ form.power(class='form-input') }}
         </div>
         <div class="coffee-open">
             <h2>Opening Hours</h2>
+            {{ form.open(class='form-input') }}
+            {{ form.close(class='form-input') }}
         </div>
         <div class="coffee-media">
             <h2>media info</h2>
+            {{ form.image_url(placeholder='Image URL', class='form-input') }}
         </div>
+
+        {{ form.submit }}
     </form>
 </section>
