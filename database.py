@@ -33,14 +33,19 @@ class Cafe(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(250), nullable=False)
     map_url: Mapped[str] = mapped_column(String(500), nullable=False)
-    img_url: Mapped[str] = mapped_column(String(500), nullable=False)
-    location: Mapped[str] = mapped_column(String(250), nullable=False)
-    wifi: Mapped[float] = mapped_column(Float, nullable=False)
-    coffee: Mapped[float] = mapped_column(Float, nullable=False)
-    power: Mapped[float] = mapped_column(Float, nullable=False)
-    open: Mapped[str] = mapped_column(String(250), nullable=False)
-    close: Mapped[str] = mapped_column(String(250), nullable=False)
-
+    description: Mapped[str] = mapped_column(String(500), nullable=False)
+    wifi: Mapped[float] = mapped_column(Boolean, nullable=False)
+    power: Mapped[float] = mapped_column(Boolean, nullable=False)
+    quiet: Mapped[str] = mapped_column(Boolean, nullable=False)
+    coffee: Mapped[float] = mapped_column(Boolean, nullable=False)
+    credit_card: Mapped[str] = mapped_column(Boolean, nullable=False)
+    food: Mapped[str] = mapped_column(Boolean, nullable=False)
+    wifi_rating: Mapped[str] = mapped_column(Integer, nullable=False)
+    coffee_rating: Mapped[str] = mapped_column(Integer, nullable=False)
+    power_rating: Mapped[str] = mapped_column(Integer, nullable=False)
+    open: Mapped[str] = mapped_column(Integer, nullable=False)
+    close: Mapped[str] = mapped_column(Integer, nullable=False)
+    image_url: Mapped[str] = mapped_column(String(500), nullable=False)
 
 class Database:
 

@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, SelectField, BooleanField
-from wtforms.validators import DataRequired, URL
+from wtforms.validators import DataRequired, URL, Length
 
 
 class AddCoffeeShop(FlaskForm):
     name = StringField(label='Coffee name', validators=[DataRequired()])
     map_url = StringField(label='Map URL', validators=[DataRequired(), URL()])
-    description = StringField(label='Coffee Description', validators=[DataRequired()])
+    description = StringField(label='Coffee Description', validators=[DataRequired(), Length(min=30, max=500)])
     # location = StringField(label='Location', validators=[DataRequired()])
     wifi = BooleanField(label='Wifi', default='')
     power_sockets = BooleanField(label='Power Sockets', default='')
