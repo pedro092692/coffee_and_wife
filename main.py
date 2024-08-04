@@ -51,9 +51,10 @@ def register():
     return render_template('security/register_user.html')
 
 
-@app.route('/coffee/<slug>', methods=['GET'])
+@app.route('/coffee/<slug>', methods=['GET', 'POST'])
 def show_coffee(slug):
-    return render_template('coffee.html')
+    coffee_shop = db.get_coffee_shop(slug=slug)
+    return render_template('coffee.html', coffee_shop_info=coffee_shop)
 
 
 @app.route('/add', methods=['GET', 'POST'])

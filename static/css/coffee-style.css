@@ -123,6 +123,10 @@
     font-weight: 900;
 }
 
+.features .productivity .container div strong{
+    color: red;
+}
+
 .features .reviews{
     display: flex;
     gap: 64px;

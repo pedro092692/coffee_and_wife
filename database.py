@@ -112,3 +112,7 @@ class Database:
 
         return new_coffee
 
+    def get_coffee_shop(self, slug):
+        coffee_shop = self.db.first_or_404(self.db.select(Cafe).filter_by(slug=slug))
+        return coffee_shop
+
