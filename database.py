@@ -3,6 +3,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean, Float
 from flask_security import Security, SQLAlchemyUserDatastore, hash_password
 from flask_security.models import fsqla_v3 as fsqla
+from slugify import slugify
 import os
 
 
@@ -46,6 +47,7 @@ class Cafe(db.Model):
     open: Mapped[str] = mapped_column(Integer, nullable=False)
     close: Mapped[str] = mapped_column(Integer, nullable=False)
     image_url: Mapped[str] = mapped_column(String(500), nullable=False)
+    slug: Mapped[str] = mapped_column(String, unique=True, nullable=False)
 
 class Database:
 

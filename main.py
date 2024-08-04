@@ -31,7 +31,7 @@ db = Database(app)
 db.create_tables()
 
 # flask migrate
-migrate = Migrate(app, db.db)
+migrate = Migrate(app, db.db, render_as_batch=True)
 
 
 @app.route('/', methods=['GET'])
