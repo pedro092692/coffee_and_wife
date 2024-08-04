@@ -80,6 +80,14 @@ class Database:
                             food_service, credit_card, coffee_score, wifi_score,
                             power_sockets_score, open_hour, close_hour, image_url):
 
+        slug = slugify(name)
+        unique_slug = slug
+        count = 1
+
+        while Cafe.query.filter_by(slug=unique_slug).first():
+            unique_slug = f'{unique_slug}-{count}'
+            count += 1
+
         new_coffee = Cafe(
             name=name,
             map_url=address_url,
@@ -95,7 +103,8 @@ class Database:
             power_rating=power_sockets_score,
             open=open_hour,
             close=close_hour,
-            image_url=image_url
+            image_url=image_url,
+            slug=unique_slug
         )
 
         self.db.session.add(new_coffee)
