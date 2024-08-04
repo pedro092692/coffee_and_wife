@@ -1,7 +1,7 @@
     <section class="main-section">
 <!--        main text-->
         <div class="title-section">
-            <h2>Found {23} Laptop Friendly Cafes in london</h2>
+            <h2>Found {{ coffees|length }} Laptop Friendly Cafes in london</h2>
             <p>Whether you're traveling the globe as a digital nomad, working as a freelancer, or professional,
                 or just looking for a place to study, finding a conducive and efficient workspace is essential.
                 To address this, we've hand picked these cafes in <span>London</span> offering comfortable seating,
@@ -11,11 +11,13 @@
         </div>
 <!--        main coffee card-->
         <div class="main-coffee" id="feature-coffee">
-            <h1>{Science Gallery London}</h1>
+            <h1>{{ best.name }}</h1>
             <h2>best rating laptop friendly coffee in london</h2>
-            <img src="{{ url_for('static', filename='assets/img/best_coffee.jpg') }}" alt="coffee shot img">
+            <img src="{{ best.image_url }}" alt="coffee shot img">
             <div>
-                <button>view more</button>
+                <a href="{{ url_for('show_coffee', slug=best.slug) }}">
+                    <button>view more</button>
+                </a>
             </div>
         </div>
 <!--        grid coffe shop section-->
@@ -25,12 +27,9 @@
             <div class="grid">
 <!--                grid-->
 <!--                card-->
-                {% include "includes/coffee-card.html" %}
-                {% include "includes/coffee-card.html" %}
-                {% include "includes/coffee-card.html" %}
-                {% include "includes/coffee-card.html" %}
-                {% include "includes/coffee-card.html" %}
-                {% include "includes/coffee-card.html" %}
+                {% for coffee in coffees  %}
+                    {% include "includes/coffee-card.html" %}
+                {% endfor %}
             </div>
         <div class="view-more">
             <button>view more</button>

@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String, Boolean, Float
+from sqlalchemy import Integer, String, Boolean, Float, desc, func
 from flask_security import Security, SQLAlchemyUserDatastore, hash_password
 from flask_security.models import fsqla_v3 as fsqla
 from slugify import slugify
@@ -75,7 +75,6 @@ class Database:
                 )
                 self.db.session.commit()
 
-
     def add_new_coffee_shop(self, name, address_url, description, stable_wife, power_sockets, quiet, coffee_service,
                             food_service, credit_card, coffee_score, wifi_score,
                             power_sockets_score, open_hour, close_hour, image_url):
@@ -116,3 +115,13 @@ class Database:
         coffee_shop = self.db.first_or_404(self.db.select(Cafe).filter_by(slug=slug))
         return coffee_shop
 
+    def get_all_coffee_shop(self):
+        coffees = self.db.session.execute(self.db.select(Cafe).order_by(desc(Cafe.id)).limit(6)).scalars().all()
+        return coffees
+
+    def best_coffee_shop(self):
+        best_coffee = self.db.session.query(
+            Cafe,
+            func.sum((Cafe.coffee_rating + Cafe.wifi_rating + Cafe.power_rating) / 3).label('Average')
+        ).group_by(Cafe.name).order_by(desc('Average')).limit(1).all()
+        return best_coffee

@@ -6,6 +6,7 @@ from flask_security import login_required
 from forms.add_coffee_shop import AddCoffeeShop
 from flask_migrate import Migrate
 from helpers import sanitize_iframe
+from datetime import datetime
 import os
 
 # todo import data base
@@ -37,14 +38,14 @@ migrate = Migrate(app, db.db, render_as_batch=True)
 
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('index.html')
+    coffees = db.get_all_coffee_shop()
+    best = db.best_coffee_shop()[0][0]
+    return render_template('index.html', coffees=coffees, best=best)
 
 
 @app.route('/login')
 def login():
-    user = 'pedro bastidas'
-    pedro = 'pedro pedro'
-    return render_template('security/login_user.html', username=user, pedro=pedro)
+    return render_template('security/login_user.html')
 
 
 @app.route('/register')
@@ -86,7 +87,7 @@ def add_coffee():
         if not iframe:
             form.map_url.errors.append('Invalid iframe Only google maps iframe allowed.')
         else:
-            db.add_new_coffee_shop(
+            new_coffee = db.add_new_coffee_shop(
                 name=coffee_name,
                 address_url=address_url,
                 description=description,
@@ -104,8 +105,15 @@ def add_coffee():
                 image_url=image_url
 
             )
+            return redirect(url_for('show_coffee', slug=new_coffee.slug))
 
     return render_template('add.html', form=form)
+
+
+@app.context_processor
+def date():
+    current_year = datetime.now().year
+    return {'current_year': current_year}
 
 
 @app.errorhandler(404)

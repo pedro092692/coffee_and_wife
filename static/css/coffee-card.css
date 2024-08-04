@@ -29,7 +29,8 @@
     line-height: normal;
 }
 
-.coffee-card button{
+.coffee-card a button{
+    width: 100%;
     padding: 16px 16px;
     color: white;
     font-size: 20px;
