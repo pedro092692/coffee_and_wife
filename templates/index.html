@@ -22,7 +22,9 @@
     <!--    map section-->
     {% include "includes/map.html" %}
     <!--main section-->
-    {% include "includes/main.html" %}
+    {% if coffees %}
+        {% include "includes/main.html" %}
+    {% endif %}
 {% endblock content %}
 
 {% block js  %}

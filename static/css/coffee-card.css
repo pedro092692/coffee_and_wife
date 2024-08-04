@@ -27,6 +27,7 @@
     font-size: 16px;
     font-weight: 300;
     line-height: normal;
+    height: 100px;
 }
 
 .coffee-card a button{
@@ -70,6 +71,13 @@
 
 @media screen and (max-width: 500px){
     .coffee-card{
-        width: 320px;
+        height: 650px;
+    }
+    .coffee-card p{
+        height: 150px;
+    }
+
+    .coffee-card img{
+        object-fit: contain;
     }
 }

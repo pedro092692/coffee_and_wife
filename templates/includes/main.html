@@ -31,7 +31,9 @@
                     {% include "includes/coffee-card.html" %}
                 {% endfor %}
             </div>
-        <div class="view-more">
-            <button>view more</button>
-        </div>
+        {% if coffees|length > 8%}
+            <div class="view-more">
+                <button>view more</button>
+            </div>
+        {% endif %}
     </section>

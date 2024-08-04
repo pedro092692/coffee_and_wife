@@ -11,19 +11,19 @@
 <!--                        map-->
                         <div class="line">
                             <h2>
-                                <a href=""><i class="fa-solid fa-map"></i></a>
+                                <a href="{{ url_for('show_coffee', slug=coffee.slug) }}#map"><i class="fa-solid fa-map"></i></a>
                             </h2>
                         </div>
 <!--                        coffee-->
                          <div class="line">
                             <h2>
-                                <a href=""><i class="fa-solid fa-mug-hot"></i></a>
+                                <a href="{{ url_for('show_coffee', slug=coffee.slug) }}#features"><i class="fa-solid fa-mug-hot"></i></a>
                             </h2>
                         </div>
 <!--                        wifi-->
                         <div>
                             <h2>
-                                <a href=""><i class="fa-solid fa-wifi"></i></a>
+                                <a href="{{ url_for('show_coffee', slug=coffee.slug) }}#features"><i class="fa-solid fa-wifi"></i></a>
                             </h2>
                         </div>
                     </div>
