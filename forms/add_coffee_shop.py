@@ -5,9 +5,8 @@ from wtforms.validators import DataRequired, URL, Length
 
 class AddCoffeeShop(FlaskForm):
     name = StringField(label='Coffee name', validators=[DataRequired()])
-    map_url = StringField(label='Map URL', validators=[DataRequired(), URL()])
+    map_url = StringField(label='Map URL', validators=[DataRequired()])
     description = StringField(label='Coffee Description', validators=[DataRequired(), Length(min=30, max=500)])
-    # location = StringField(label='Location', validators=[DataRequired()])
     wifi = BooleanField(label='Wifi', default='')
     power_socket = BooleanField(label='Power Socket', default='')
     quiet = BooleanField(label='Quiet', default='')

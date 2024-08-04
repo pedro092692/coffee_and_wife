@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from flask_security import login_required
 from forms.add_coffee_shop import AddCoffeeShop
 from flask_migrate import Migrate
+from helpers import sanitize_iframe
 import os
 
 # todo import data base
@@ -81,24 +82,28 @@ def add_coffee():
         close_hour = form.close.data
         image_url = form.image_url.data
 
-        db.add_new_coffee_shop(
-            name=coffee_name,
-            address_url=address_url,
-            description=description,
-            stable_wife=stable_wife,
-            power_sockets=power_socket,
-            quiet=quiet,
-            coffee_service=coffee_service,
-            food_service=food_service,
-            credit_card=credit_card,
-            coffee_score=coffee_rating,
-            wifi_score=wifi_rating,
-            power_sockets_score=power_sockets_rating,
-            open_hour=open_hour,
-            close_hour=close_hour,
-            image_url=image_url
+        iframe = sanitize_iframe(address_url)
+        if not iframe:
+            form.map_url.errors.append('Invalid iframe Only google maps iframe allowed.')
+        else:
+            db.add_new_coffee_shop(
+                name=coffee_name,
+                address_url=address_url,
+                description=description,
+                stable_wife=stable_wife,
+                power_sockets=power_socket,
+                quiet=quiet,
+                coffee_service=coffee_service,
+                food_service=food_service,
+                credit_card=credit_card,
+                coffee_score=coffee_rating,
+                wifi_score=wifi_rating,
+                power_sockets_score=power_sockets_rating,
+                open_hour=open_hour,
+                close_hour=close_hour,
+                image_url=image_url
 
-        )
+            )
 
     return render_template('add.html', form=form)
 

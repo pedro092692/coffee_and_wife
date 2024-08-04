@@ -21,6 +21,11 @@
     text-transform: capitalize;
 }
 
+.main-content-coffee .map-url iframe{
+    width: 100%;
+    height: 400px;
+}
+
 .main-content-coffee .coffee-rating{
     display: flex;
     justify-content: space-between;
