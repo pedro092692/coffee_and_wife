@@ -1,4 +1,5 @@
     <section class="main-section">
+    {% if coffees %}
 <!--        main text-->
         <div class="title-section">
             <h2>Found {{ coffees|length }} Laptop Friendly Cafes in london</h2>
@@ -36,4 +37,9 @@
                 <button>view more</button>
             </div>
         {% endif %}
+    {% else %}
+        <div class="title-section">
+            <h2>No Coffe Data yet.</h2>
+        </div>
+    {% endif%}
     </section>

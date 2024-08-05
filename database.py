@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String, Boolean, Float, desc, func
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy import Integer, String, Boolean, Float, desc, func, ForeignKey
 from flask_security import Security, SQLAlchemyUserDatastore, hash_password
 from flask_security.models import fsqla_v3 as fsqla
 from slugify import slugify
@@ -28,10 +28,13 @@ class User(db.Model, fsqla.FsUserMixin):
     name: Mapped[str] = mapped_column(String(250), nullable=True)
     password: Mapped[str] = mapped_column(String(250), nullable=False)
     fs_uniquifier: Mapped[str] = mapped_column(String, nullable=False, unique=True)
+    cafes: Mapped["Cafe"] = relationship(back_populates='author')
 
 
 class Cafe(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("user.id"))
+    author: Mapped["User"] = relationship(back_populates='cafes')
     name: Mapped[str] = mapped_column(String(250), nullable=False)
     map_url: Mapped[str] = mapped_column(String(500), nullable=False)
     description: Mapped[str] = mapped_column(String(500), nullable=False)

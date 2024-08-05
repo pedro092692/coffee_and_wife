@@ -39,7 +39,9 @@ migrate = Migrate(app, db.db, render_as_batch=True)
 @app.route('/', methods=['GET'])
 def home():
     coffees = db.get_all_coffee_shop()
-    best = db.best_coffee_shop()[0][0]
+    best = []
+    if coffees:
+        best = db.best_coffee_shop()[0][0]
     return render_template('index.html', coffees=coffees, best=best)
 
 

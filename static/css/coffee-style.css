@@ -6,6 +6,32 @@
     padding: 40px 40px;
 }
 
+.main-content-coffee .coffee-control{
+    display: flex;
+    gap: 16px;
+}
+
+.main-content-coffee .coffee-control a button, form input{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 16px 16px;
+    width: 150px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+.main-content-coffee .coffee-control a button{
+    background: #FB9600;
+}
+
+
+.main-content-coffee .coffee-control form input{
+    background: #EE4D1C;
+}
+
 .main-content-coffee .coffee-summary h2{
     font-size: 48px;
     font-weight: 900;
