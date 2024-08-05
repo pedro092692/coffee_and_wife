@@ -80,7 +80,7 @@ class Database:
 
     def add_new_coffee_shop(self, name, address_url, description, stable_wife, power_sockets, quiet, coffee_service,
                             food_service, credit_card, coffee_score, wifi_score,
-                            power_sockets_score, open_hour, close_hour, image_url):
+                            power_sockets_score, open_hour, close_hour, image_url, user_id):
 
         slug = slugify(name)
         unique_slug = slug
@@ -106,7 +106,8 @@ class Database:
             open=open_hour,
             close=close_hour,
             image_url=image_url,
-            slug=unique_slug
+            slug=unique_slug,
+            user_id=user_id
         )
 
         self.db.session.add(new_coffee)
@@ -128,3 +129,28 @@ class Database:
             func.sum((Cafe.coffee_rating + Cafe.wifi_rating + Cafe.power_rating) / 3).label('Average')
         ).group_by(Cafe.name).order_by(desc('Average')).limit(1).all()
         return best_coffee
+
+    def edit_cafe(self, cafe: Cafe, name, address_url, description, stable_wife, power_sockets, quiet, coffee_service,
+                            food_service, credit_card, coffee_score, wifi_score,
+                            power_sockets_score, open_hour, close_hour, image_url):
+        cafe.name = name
+        cafe.map_url = address_url
+        cafe.description = description
+        cafe.wifi = stable_wife
+        cafe.power = power_sockets
+        cafe.quiet = quiet
+        cafe.coffee = coffee_service
+        cafe.food = food_service
+        cafe.credit_card = credit_card
+        cafe.coffee_rating = coffee_score
+        cafe.wifi_rating = wifi_score
+        cafe.power_rating = power_sockets_score
+        cafe.open = open_hour
+        cafe.close = close_hour
+        cafe.image_url = image_url
+
+        self.db.session.commit()
+
+    def delete_coffe(self, cafe: Cafe):
+        self.db.session.delete(cafe)
+        self.db.session.commit()

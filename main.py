@@ -1,8 +1,8 @@
-from flask import Flask, url_for, redirect, render_template, request, flash
+from flask import Flask, url_for, redirect, render_template, request, flash, abort
 from flask_wtf.csrf import CSRFProtect
 from database import Database
 from dotenv import load_dotenv
-from flask_security import login_required
+from flask_security import login_required, current_user
 from forms.add_coffee_shop import AddCoffeeShop
 from flask_migrate import Migrate
 from helpers import sanitize_iframe
@@ -104,12 +104,89 @@ def add_coffee():
                 power_sockets_score=power_sockets_rating,
                 open_hour=open_hour,
                 close_hour=close_hour,
-                image_url=image_url
+                image_url=image_url,
+                user_id=current_user.id
 
             )
             return redirect(url_for('show_coffee', slug=new_coffee.slug))
 
     return render_template('add.html', form=form)
+
+
+@app.route('/edit/<slug>', methods=['GET', 'POST'])
+@login_required
+def edit_coffee(slug):
+    coffee_info = db.get_coffee_shop(slug)
+
+    if coffee_info.author.id != current_user.id:
+        return redirect('/')
+
+    form = AddCoffeeShop()
+
+    if form.submit.data and form.validate():
+        # Coffee Info
+        coffee_name = form.name.data
+        address_url = form.map_url.data
+        description = form.description.data
+        stable_wife = form.wifi.data
+        power_socket = form.power_socket.data
+        quiet = form.quiet.data
+        coffee_service = form.coffee_service.data
+        food_service = form.food_service.data
+        credit_card = form.credit_card_service.data
+        coffee_rating = form.coffee.data
+        wifi_rating = form.wifi_score.data
+        power_sockets_rating = form.power.data
+        open_hour = form.open.data
+        close_hour = form.close.data
+        image_url = form.image_url.data
+
+        db.edit_cafe(
+            cafe=coffee_info,
+            name=coffee_name,
+            address_url=address_url,
+            description=description,
+            stable_wife=stable_wife,
+            power_sockets=power_socket,
+            quiet=quiet,
+            coffee_service=coffee_service,
+            food_service=food_service,
+            credit_card=credit_card,
+            coffee_score=coffee_rating,
+            wifi_score=wifi_rating,
+            power_sockets_score=power_sockets_rating,
+            open_hour=open_hour,
+            close_hour=close_hour,
+            image_url=image_url
+        )
+
+        return redirect(url_for('show_coffee', slug=coffee_info.slug))
+
+    form.name.data = coffee_info.name
+    form.map_url.data = coffee_info.map_url
+    form.description.data = coffee_info.description
+    form.wifi.data = coffee_info.wifi
+    form.power_socket.data = coffee_info.power
+    form.quiet.data = coffee_info.quiet
+    form.coffee_service.data = coffee_info.coffee
+    form.food_service.data = coffee_info.food
+    form.credit_card_service.data = coffee_info.credit_card
+    form.coffee.data = coffee_info.coffee_rating
+    form.wifi_score.data = coffee_info.wifi_rating
+    form.power.data = coffee_info.power_rating
+    form.open.data = coffee_info.open
+    form.close.data = coffee_info.close
+    form.image_url.data = coffee_info.image_url
+
+    return render_template('add.html', form=form)
+
+
+@app.route('/delete-coffee/<slug>', methods=['POST'])
+@login_required
+def delete_coffee(slug):
+    coffee = db.get_coffee_shop(slug)
+    db.delete_coffe(coffee)
+    return redirect('/')
 
 
 @app.context_processor

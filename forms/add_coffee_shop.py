@@ -13,14 +13,14 @@ class AddCoffeeShop(FlaskForm):
     coffee_service = BooleanField(label='Coffee Service', default='')
     food_service = BooleanField(label='Coffee Service', default='')
     credit_card_service = BooleanField(label='Coffee Service', default='')
-    coffee = SelectField(label='Coffee score',
-                         choices=[('', 'Coffee Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
+    coffee = SelectField(label='Coffee score', coerce=int,
+                         choices=[('0', 'Coffee Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
                          validators=[DataRequired()])
-    power = SelectField(label='Power score',
-                        choices=[('', 'Power Sockets Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
+    power = SelectField(label='Power score', coerce=int,
+                        choices=[('0', 'Power Sockets Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
                          validators=[DataRequired()])
-    wifi_score = SelectField(label='Wifi score',
-                        choices=[('', 'WIFI Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
+    wifi_score = SelectField(label='Wifi score', coerce=int,
+                        choices=[('0', 'WIFI Rating')] + [(f'{star}', f'{"⭐" * star}') for star in range(1, 6)],
                          validators=[DataRequired()])
     open = SelectField(label='Open', choices=[('', 'Open')] + [(f'{hour} AM', f'{hour} AM') for hour in range(1, 13)],
                        validators=[DataRequired()])

@@ -1,13 +1,17 @@
 <section class="main-content-coffee">
 <!--    summary & description-->
-    <div class="coffee-control">
-        <a href="">
-            <button>Edit</button>
-        </a>
-        <form action="">
-            <input type="submit" value="Delete">
-        </form>
-    </div>
+    {% if coffee_shop_info.author.id == current_user.id %}
+        <div class="coffee-control">
+            <form action="{{ url_for('edit_coffee', slug=coffee_shop_info.slug) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="{{ url_for('delete_coffee', slug=coffee_shop_info.slug) }}" method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    {% endif %}
 
     <div class="coffee-summary">
         <h2>summary</h2>
