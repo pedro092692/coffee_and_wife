@@ -19,3 +19,9 @@
 <!--content-->
     {% include 'coffee/content.html' %}
 {% endblock content %}
+
+<!--js-->
+{% block js %}
+<script src="{{ url_for('static', filename='js/delete.js') }}">
+</script>
+{% endblock js %}

@@ -181,9 +181,12 @@ def edit_coffee(slug):
     return render_template('add.html', form=form)
 
 
-@app.route('/delete-coffee/<slug>', methods=['POST'])
+@app.route('/delete-coffee/<slug>', methods=['GET', 'POST'])
 @login_required
 def delete_coffee(slug):
+    if request.method == 'GET':
+        return redirect('/')
+
     coffee = db.get_coffee_shop(slug)
     db.delete_coffe(coffee)
     return redirect('/')
