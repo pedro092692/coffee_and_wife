@@ -229,6 +229,25 @@
     display: none;
 }
 
+.main-content-coffee .reviews .review .owner{
+    font-size: 24px;
+}
+
+.main-content-coffee .reviews .review .owner i{
+    margin: 0px 16px 16px 0;
+    cursor: pointer;
+}
+
+.main-content-coffee .reviews .review .owner .delete{
+    color: red;
+}
+
+.main-content-coffee .reviews .review .owner .delete-comment-form{
+    display: none;
+}
+
+
+
 /* media queries */
 @media screen and (max-width: 1150px){
     .main-content-coffee{

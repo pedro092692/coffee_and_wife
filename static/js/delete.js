@@ -14,4 +14,23 @@ function delete_coffee_shop(){
     }
 }
 
+function delete_comment(){
+
+   try{
+        let delete_comment_button = document.getElementById('delete-comment');
+        let form = document.getElementById('delete-comment-form');
+        delete_comment_button.addEventListener('click', ()=>{
+            let ok = confirm('Are you sure?');
+            if(ok == true){
+                form.submit();
+            }
+        })
+
+   }catch{
+    //pass
+   }
+
+}
+
 delete_coffee_shop();
+delete_comment();

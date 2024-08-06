@@ -79,12 +79,16 @@ def show_coffee(slug):
 
         comment = form.comment.data
 
-        # add comment to db
-        db.add_comment(
-            user_id=current_user.id,
-            cafe_id=coffee_shop.id,
-            comment=comment
-        )
+        # check if this user has comments
+        if current_user.comments:
+            db.update_comment(current_user.comments, comment)
+        else:
+            # add comment to db
+            db.add_comment(
+                user_id=current_user.id,
+                cafe_id=coffee_shop.id,
+                comment=comment
+            )
 
         return redirect(url_for('show_coffee', slug=slug, _anchor='reviews'))
 
@@ -215,11 +219,23 @@ def edit_coffee(slug):
 @login_required
 def delete_coffee(slug):
     if request.method == 'GET':
-        return redirect('/')
+        return redirect(url_for('home'))
 
     coffee = db.get_coffee_shop(slug)
     db.delete_coffe(coffee)
     return redirect('/')
+
+
+@app.route('/delete-comment/<comment_id>/<slug>', methods=['GET', 'POST'])
+def delete_comment(comment_id, slug):
+    if request.method == 'GET':
+        return redirect(url_for('home'))
+
+    db.delete_comment(comment_id)
+
+    return redirect(url_for('show_coffee', slug=slug, _anchor='reviews'))
+
+
 
 
 @app.context_processor

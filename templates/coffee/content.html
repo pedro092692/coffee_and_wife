@@ -127,10 +127,19 @@
             {% for comment in coffee_shop_info.comments %}
                 <div class="review">
                     <img src="{{ comment.comment_author.email | gravatar }}" alt="photo profile">
-
                         <p>
                             {{ comment.comment }}
                         </p>
+                    {% if current_user.id == comment.user_id %}
+                        <div class="owner">
+                            <i class="fa-regular fa-pen-to-square" id="edit-comment"></i>
+                            <form action="{{ url_for('delete_comment', comment_id=comment.id, slug=coffee_shop_info.slug) }}"
+                                  method="POST" class="delete-comment-form" id="delete-comment-form">
+                                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                            </form>
+                            <i class="fa-solid fa-circle-xmark delete" id="delete-comment"></i>
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         {% else %}
@@ -138,8 +147,10 @@
         {% endif %}
 <!--        review form-->
         {% include 'includes/comment.html' %}
-        <div>
-            <button id="leave-comment" active_user="{{ current_user.is_authenticated }}">Leave a review</button>
-        </div>
+        {% if not current_user.comments %}
+            <div>
+                <button id="leave-comment" active_user="{{ current_user.is_authenticated }}">Leave a review</button>
+            </div>
+        {% endif %}
     </div>
 </section>

@@ -177,3 +177,12 @@ class Database:
 
         self.db.session.add(new_comment)
         self.db.session.commit()
+
+    def update_comment(self, comment_obj: Comments, comment):
+        comment_obj.comment = comment
+        self.db.session.commit()
+
+    def delete_comment(self, comment_id):
+        comment = self.db.get_or_404(Comments, comment_id)
+        self.db.session.delete(comment)
+        self.db.session.commit()
