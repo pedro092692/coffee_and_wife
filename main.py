@@ -3,10 +3,11 @@ from flask_wtf.csrf import CSRFProtect
 from database import Database
 from dotenv import load_dotenv
 from flask_security import login_required, current_user
-from forms.add_coffee_shop import AddCoffeeShop
+from forms.add_coffee_shop import AddCoffeeShop, Comment
 from flask_migrate import Migrate
 from helpers import sanitize_iframe
 from datetime import datetime
+from flask_gravatar import Gravatar
 import os
 
 # todo import data base
@@ -35,6 +36,17 @@ db.create_tables()
 # flask migrate
 migrate = Migrate(app, db.db, render_as_batch=True)
 
+# plugins
+gravatar = Gravatar(
+    app=app,
+    size=100,
+    rating='g',
+    default='retro',
+    force_default=False,
+    use_ssl=False,
+    base_url=None,
+)
+
 
 @app.route('/', methods=['GET'])
 def home():
@@ -58,7 +70,25 @@ def register():
 @app.route('/coffee/<slug>', methods=['GET', 'POST'])
 def show_coffee(slug):
     coffee_shop = db.get_coffee_shop(slug=slug)
-    return render_template('coffee.html', coffee_shop_info=coffee_shop)
+    form = Comment()
+
+    if form.validate_on_submit():
+
+        if not current_user.is_authenticated:
+            return redirect('/')
+
+        comment = form.comment.data
+
+        # add comment to db
+        db.add_comment(
+            user_id=current_user.id,
+            cafe_id=coffee_shop.id,
+            comment=comment
+        )
+
+        return redirect(url_for('show_coffee', slug=slug, _anchor='reviews'))
+
+    return render_template('coffee.html', coffee_shop_info=coffee_shop, form=form)
 
 
 @app.route('/add', methods=['GET', 'POST'])

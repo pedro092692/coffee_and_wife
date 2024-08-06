@@ -32,4 +32,9 @@ class AddCoffeeShop(FlaskForm):
     submit = SubmitField(label='Add Coffee Shop')
 
 
+class Comment(FlaskForm):
+    comment = TextAreaField(label='Comment', validators=[DataRequired(), Length(min=10, max=500)])
+    submit = SubmitField(label='Post Comment')
+
+
 

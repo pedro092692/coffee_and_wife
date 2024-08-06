@@ -185,6 +185,11 @@
     object-fit: cover;
 }
 
+.features .reviews h3{
+    font-size: 24px;
+    font-weight: 800;
+}
+
 .main-content-coffee .reviews button{
     font-family: "Open sans", sans, serif;
     font-size: 20px;
@@ -195,6 +200,33 @@
     background-color: #FB9600;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.main-content-coffee .reviews .comment .review-form{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.main-content-coffee .reviews .comment .review-form textarea{
+    padding: 16px 16px;
+    height: 224px;
+    resize: none;
+    border: 1px solid #E1E1E1;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: auto;
+}
+
+.main-content-coffee .reviews .comment .review-form input[type=submit]{
+    padding: 16px 16px;
+    width: auto;
+    background: #FB9600;
+}
+
+.main-content-coffee .reviews .comment .review-form{
+    display: none;
 }
 
 /* media queries */

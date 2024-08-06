@@ -4,6 +4,7 @@ from sqlalchemy import Integer, String, Boolean, Float, desc, func, ForeignKey
 from flask_security import Security, SQLAlchemyUserDatastore, hash_password
 from flask_security.models import fsqla_v3 as fsqla
 from slugify import slugify
+from typing import List
 import os
 
 
@@ -52,7 +53,7 @@ class Cafe(db.Model):
     close: Mapped[str] = mapped_column(Integer, nullable=False)
     image_url: Mapped[str] = mapped_column(String(500), nullable=False)
     slug: Mapped[str] = mapped_column(String, unique=True, nullable=False)
-    comments: Mapped["Comments"] = relationship(back_populates='parent_cafe')
+    comments: Mapped[List["Comments"]] = relationship(back_populates='parent_cafe')
 
 
 class Comments(db.Model):
@@ -165,4 +166,14 @@ class Database:
 
     def delete_coffe(self, cafe: Cafe):
         self.db.session.delete(cafe)
+        self.db.session.commit()
+
+    def add_comment(self, user_id, cafe_id, comment):
+        new_comment = Comments(
+            user_id=user_id,
+            coffee_id=cafe_id,
+            comment=comment
+        )
+
+        self.db.session.add(new_comment)
         self.db.session.commit()

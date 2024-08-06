@@ -1,0 +1,9 @@
+<div class="comment">
+    <form action="" class="review-form" method="POST" id="review-form">
+        {{ form.csrf_token }}
+        {{ form.comment(placeholder='Your Review') }}
+        <div>
+            {{ form.submit }}
+        </div>
+    </form>
+</div>

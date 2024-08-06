@@ -119,21 +119,27 @@
             </div>
         </div>
 <!--    reviews-->
-    <div class="reviews">
-        <h2>Reviews</h2>
-<!--        comment-->
-        <div class="review">
-            <img src="{{ url_for('static', filename='assets/img/avatar.png') }}" alt="photo profile">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
+    <div class="reviews" id="reviews">
+        {% if coffee_shop_info.comments %}
+            <h2>Reviews</h2>
+    <!--        comment-->
+
+            {% for comment in coffee_shop_info.comments %}
+                <div class="review">
+                    <img src="{{ comment.comment_author.email | gravatar }}" alt="photo profile">
+
+                        <p>
+                            {{ comment.comment }}
+                        </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>No reviews yet</h3>
+        {% endif %}
+<!--        review form-->
+        {% include 'includes/comment.html' %}
         <div>
-            <button>Leave a review</button>
+            <button id="leave-comment" active_user="{{ current_user.is_authenticated }}">Leave a review</button>
         </div>
     </div>
 </section>
