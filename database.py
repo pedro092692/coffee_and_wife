@@ -29,6 +29,7 @@ class User(db.Model, fsqla.FsUserMixin):
     password: Mapped[str] = mapped_column(String(250), nullable=False)
     fs_uniquifier: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     cafes: Mapped["Cafe"] = relationship(back_populates='author')
+    comments: Mapped["Comments"] = relationship(back_populates='comment_author')
 
 
 class Cafe(db.Model):
@@ -51,6 +52,17 @@ class Cafe(db.Model):
     close: Mapped[str] = mapped_column(Integer, nullable=False)
     image_url: Mapped[str] = mapped_column(String(500), nullable=False)
     slug: Mapped[str] = mapped_column(String, unique=True, nullable=False)
+    comments: Mapped["Comments"] = relationship(back_populates='parent_cafe')
+
+
+class Comments(db.Model):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("user.id"))
+    comment_author: Mapped["User"] = relationship(back_populates='comments')
+    coffee_id: Mapped[int] = mapped_column(Integer, ForeignKey("cafe.id"))
+    comment: Mapped[str] = mapped_column(String(500), nullable=False)
+    parent_cafe: Mapped["Cafe"] = relationship(back_populates='comments')
+
 
 class Database:
 
