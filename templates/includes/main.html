@@ -32,9 +32,11 @@
                     {% include "includes/coffee-card.html" %}
                 {% endfor %}
             </div>
-        {% if coffees|length > 8%}
+        {% if coffees|length > 8 %}
             <div class="view-more">
-                <button>view more</button>
+                <a href="{{ url_for('show_all') }}">
+                    <button>view more</button>
+                </a>
             </div>
         {% endif %}
     {% else %}

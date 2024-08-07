@@ -23,6 +23,10 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
+.all{
+    background: rgba(0, 0, 0, 0.3);
+}
+
 .coffee-hero h1{
     font-family: "Inter", sans-serif;
     color: white;
@@ -30,6 +34,7 @@
     font-weight: 900;
     z-index: 3;
     padding: 40px;
+    text-transform: capitalize;
 }
 
 

@@ -1,0 +1,17 @@
+<section class="section-container">
+    <p class="info">
+        Whether you're traveling the globe as a digital nomad, working as a freelancer, or professional, or just
+        looking for a place to study, finding a conducive and efficient workspace is essential. To address this,
+        we've hand picked these cafes in London offering comfortable seating, high-speed free Wi-Fi,
+        and numerous power outlets. These laptop friendly cafes offer an ideal setting for work,
+        collaboration, city exploration, and productivity.
+    </p>
+
+    <h2 class="title">Explore the best coffee shops that we found for you in london</h2>
+
+    <div class="grid">
+        {% for coffee in coffees %}
+            {% include 'includes/coffee-card.html' %}
+        {% endfor %}
+    </div>
+</section>

@@ -23,7 +23,7 @@
     color: white;
 }
 
-.main-content-coffee .coffee-control a button{
+.main-content-coffee .coffee-control form .edit{
     background: #FB9600;
 }
 

@@ -1,0 +1,38 @@
+.section-container{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section-container .info{
+    font-family: "Open sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.section-container .title{
+    font-family: "Inter", sans-serif;
+    font-size: 35px;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+.section-container .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    place-items: center;
+    gap: 24px;
+}
+
+/*  media queries */
+
+@media screen and (max-width: 500px){
+    .section-container{
+        padding: 40px 10px;
+    }
+    .grid .coffee-card{
+       width: 100%;
+    }
+}

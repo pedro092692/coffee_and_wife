@@ -95,6 +95,12 @@ def show_coffee(slug):
     return render_template('coffee.html', coffee_shop_info=coffee_shop, form=form)
 
 
+@app.route('/all-coffee-shop', methods=['GET'])
+def show_all():
+    coffee_number = db.coffee_number()
+    coffees = db.get_all_coffee_shop()
+    return render_template('all_coffee.html', coffee_number=coffee_number, coffees=coffees)
+
 @app.route('/add', methods=['GET', 'POST'])
 @login_required
 def add_coffee():
@@ -236,8 +242,6 @@ def delete_comment(comment_id, slug):
     return redirect(url_for('show_coffee', slug=slug, _anchor='reviews'))
 
 
-
-
 @app.context_processor
 def date():
     current_year = datetime.now().year
@@ -250,5 +254,5 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 

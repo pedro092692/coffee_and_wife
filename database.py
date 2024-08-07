@@ -186,3 +186,8 @@ class Database:
         comment = self.db.get_or_404(Comments, comment_id)
         self.db.session.delete(comment)
         self.db.session.commit()
+
+
+    def coffee_number(self):
+        coffee_numer = self.db.session.query(Cafe.id).count()
+        return coffee_numer
